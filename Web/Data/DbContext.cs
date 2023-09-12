@@ -1,12 +1,12 @@
-﻿using Microsoft.Extensions.Options;
-using System.Data.Entity;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
 using Web.Models;
 
 namespace Web.Data
 {
-    public class DbContext
+    public class DataContext: DbContext
     {
-        public DbContext(): base() { }
+        public DataContext(DbContextOptions<DataContext> options): base(options) { }
         public DbSet<Cat> Cats { get; set; }
     }
 }
