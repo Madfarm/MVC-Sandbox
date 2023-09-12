@@ -1,5 +1,13 @@
 ﻿@{
     ViewData["Title"] = "Cat Page";
+    @model IEnumerable<Cat>
 }
 
+
 <h1>Cat Page</h1>
+
+@foreach(var cat in Model)
+{
+    <p> @cat.Name </p>
+    <p> @cat.Age </p>
+}
