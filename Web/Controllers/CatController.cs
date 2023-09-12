@@ -19,6 +19,7 @@ namespace Web.Controllers
         
         public IActionResult InfiniteCat()
         {
+
             return View();
         }
     }
