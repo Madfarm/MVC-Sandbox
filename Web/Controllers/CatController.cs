@@ -22,5 +22,10 @@ namespace Web.Controllers
 
             return View();
         }
+
+        public IActionResult CreateForm()
+        {
+            return View();
+        }
     }
 }
