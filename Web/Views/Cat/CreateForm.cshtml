@@ -1,8 +1,30 @@
-﻿@{
-    ViewData["Title"] = "Create Cat";
-}
-@model Cat 
+﻿@model Cat 
 
 <form>
-    
+    <div>
+        <label>Name</label>
+        <input asp-for="Name" />
+        <span asp-validation-for="Name"></span>
+    </div>
+
+    <div>
+        <label>Age</label>
+        <input asp-for="Age" />
+        <span asp-validation-for="Age"></span>
+    </div>
+
+    <div>
+        <label>Image</label>
+        <input asp-for="Image" />
+        <span asp-validation-for="Image"></span>
+    </div>
+
+    <div>
+        <input type="submit" />
+    </div>
 </form>
+
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
