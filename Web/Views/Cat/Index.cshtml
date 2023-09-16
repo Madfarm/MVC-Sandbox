@@ -6,6 +6,11 @@
 
 
 <h1>Cat Page</h1>
+<div class="btn btn-dark">
+    <a asp-controller="Cat" asp-action="CreateForm" class="text-white">
+        Create a new cat
+    </a>
+</div>
 
 <table class="table">
     <thead>
@@ -26,9 +31,3 @@
         }
     </tbody>
 </table>
-
-<div>
-    <a asp-controller="Cat" asp-action="CreateForm" class="text-dark">
-        Create a new cat
-    </a>
-</div>
