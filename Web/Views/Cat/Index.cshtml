@@ -24,10 +24,11 @@
         @foreach (var cat in Model)
         {
             <tr>
-                <td> @cat.Name </td>
+                <td><a asp-controller="Cat" asp-action="CatDetails" >@cat.Name</a></td>
                 <td> @cat.Age </td>
                 <td><a class="btn btn-danger">Delete</a></td>
             </tr>
         }
     </tbody>
 </table>
+
