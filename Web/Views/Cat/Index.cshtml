@@ -1,16 +1,19 @@
 ﻿@{
     ViewData["Title"] = "Cat Page";
     @model IEnumerable<Cat>
+
 }
 
 
 <h1>Cat Page</h1>
 
-@foreach(var cat in Model)
+@foreach (var cat in Model)
 {
-    <p> @cat.Name </p>
-    <p> @cat.Age </p>
-    <img src="@cat.Image" alt="@cat.Name picture" />
+    <div class="border-2">
+        <p> @cat.Name </p>
+        <p> @cat.Age </p>
+        <img src="@cat.Image" alt="@cat.Name picture" />
+    </div>
 }
 
 <div>
