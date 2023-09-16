@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Web.Data;
+using Web.Models;
 
 namespace Web.Controllers
 {
@@ -26,6 +27,20 @@ namespace Web.Controllers
         public IActionResult CreateForm()
         {
             return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> CreatForm(Cat model)
+        {
+            if (ModelState.IsValid)
+            {
+                await _db.Cats.AddAsync(model);
+                await _db.SaveChangesAsync();
+
+                return RedirectToAction(nameof(Index));
+            }
+
+            return View(model);
         }
     }
 }
