@@ -42,5 +42,10 @@ namespace Web.Controllers
 
             return View(model);
         }
+
+        public async Task<IActionResult> CatDetails(int id)
+        {
+
+        }
     }
 }
