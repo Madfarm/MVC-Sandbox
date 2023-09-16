@@ -43,9 +43,16 @@ namespace Web.Controllers
             return View(model);
         }
 
-        public async Task<IActionResult> CatDetails(int id)
+        public async Task<IActionResult> Details(int id)
         {
+            Cat cat = await _db.Cats.SingleOrDefaultAsync(c => c.Id == id);
 
+            if (cat != null)
+            {
+                return View(cat);
+            }
+
+            return NotFound();
         }
     }
 }
