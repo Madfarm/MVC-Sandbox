@@ -30,12 +30,12 @@ namespace Web.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> CreatForm(Cat model)
+        public async Task<IActionResult> CreateForm(Cat model)
         {
             if (ModelState.IsValid)
             {
                 await _db.Cats.AddAsync(model);
-                await _db.SaveChangesAsync();
+                _db.SaveChanges();
 
                 return RedirectToAction(nameof(Index));
             }
