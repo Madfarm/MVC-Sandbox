@@ -4,17 +4,12 @@
     <h1>Are you seriously murdering @Model.Name ?</h1>
     <h2>They're only @Model.Age years old!</h2>
 
-    
-    
-
     <img src="@Model.Image" alt="@Model.Name" />
 
-    
-
+    <input type="submit" class="btn btn-danger" value="YES, I'm a monster" />
 </form>
 
 <a class="btn btn-success" asp-controller="Cat" asp-action="Index">
     Back to Cats
 </a>
 
-<a class="btn btn-danger">YES</a>
