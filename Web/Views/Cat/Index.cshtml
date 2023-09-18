@@ -25,7 +25,7 @@
         @foreach (var cat in Model)
         {
             <tr>
-                <td><a asp-controller="Cat" asp-action="Details" asp-route-id="@cat.Id">
+                <td><a class="nav-link" asp-controller="Cat" asp-action="Details" asp-route-id="@cat.Id">
                     @cat.Name
                 </a></td>
                 <td> @cat.Age </td>
