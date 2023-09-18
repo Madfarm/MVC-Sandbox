@@ -1,14 +1,20 @@
 ﻿@model Cat
 
 <form>
-    <input asp-for="Name" disabled />
+    <h1>Are you seriously murdering @Model.Name ?</h1>
+    <h2>They're only @Model.Age years old!</h2>
 
-    <input asp-for="Age" disabled />
+    
+    
 
     <img src="@Model.Image" alt="@Model.Name" />
 
+    
+
 </form>
 
-<a asp-controller="Cat" asp-action="Index">
+<a class="btn btn-success" asp-controller="Cat" asp-action="Index">
     Back to Cats
 </a>
+
+<a class="btn btn-danger">YES</a>
