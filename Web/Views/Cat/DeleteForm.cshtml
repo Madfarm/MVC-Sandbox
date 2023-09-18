@@ -1,27 +1,12 @@
 ﻿@model Cat
 
-<form asp-action="CreateForm">
-    <div>
-        <label>Name</label>
-        <input asp-for="Name" />
-      
-    </div>
+<form>
+    <input asp-for="Name" disabled />
 
-    <div>
-        <label>Age</label>
-        <input asp-for="Age" />
-      
-    </div>
+    <input asp-for="Age" disabled />
 
-    <div>
-        <label>Image</label>
-        <input asp-for="Image" />
-        
-    </div>
+    <img src="@Model.Image" alt="@Model.Name" />
 
-    <div>
-        <input type="submit" />
-    </div>
 </form>
 
 <a asp-controller="Cat" asp-action="Index">

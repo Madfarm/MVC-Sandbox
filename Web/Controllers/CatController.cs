@@ -57,7 +57,14 @@ namespace Web.Controllers
 
         public async Task<IActionResult> DeleteForm(int id)
         {
-            return View();
+            Cat cat = await _db.Cats.SingleOrDefaultAsync(c => c.Id == id);
+
+            if (cat != null)
+            {
+                return View(cat);
+            }
+
+            return NotFound();
         }
     }
 }
