@@ -54,5 +54,10 @@ namespace Web.Controllers
 
             return NotFound();
         }
+
+        public async Task<IActionResult> DeleteForm(int id)
+        {
+            return View();
+        }
     }
 }
