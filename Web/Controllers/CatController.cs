@@ -34,10 +34,19 @@ namespace Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                await _db.Cats.AddAsync(model);
-                _db.SaveChanges();
+                try
+                {
+                    await _db.Cats.AddAsync(model);
+                    _db.SaveChanges();
 
-                return RedirectToAction(nameof(Index));
+                    TempData["success"] = "Oooh! A new baby!";
+                    return RedirectToAction(nameof(Index));
+                }
+                catch (Exception e)
+                {
+                    TempData["error"] = e.Message;
+                    return NoContent();
+                }
             }
 
             return View(model);
