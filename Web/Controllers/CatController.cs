@@ -66,5 +66,15 @@ namespace Web.Controllers
 
             return NotFound();
         }
+
+        [HttpPost]
+        public async Task<IActionResult> DeleteForm(Cat CatToBeDeleted)
+        {
+            _db.Cats.Remove(CatToBeDeleted);
+            await _db.SaveChangesAsync();
+
+            return RedirectToAction(nameof(Index));
+
+        }
     }
 }
