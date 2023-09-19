@@ -8,7 +8,7 @@ namespace Web.Controllers
     public class CatController : Controller
     {
         private readonly DataContext _db;
-        public CatController(DataContext db) 
+        public CatController(DataContext db)
         {
             _db = db;
         }
@@ -17,7 +17,7 @@ namespace Web.Controllers
             var cats = await _db.Cats.ToListAsync();
             return View(cats);
         }
-        
+
         public IActionResult InfiniteCat()
         {
 
@@ -70,10 +70,19 @@ namespace Web.Controllers
         [HttpPost]
         public async Task<IActionResult> DeleteForm(Cat CatToBeDeleted)
         {
-            _db.Cats.Remove(CatToBeDeleted);
-            await _db.SaveChangesAsync();
+            try
+            {
+                _db.Cats.Remove(CatToBeDeleted);
+                await _db.SaveChangesAsync();
 
-            return RedirectToAction(nameof(Index));
+                TempData["success"] = "You disgust me";
+                return RedirectToAction(nameof(Index));
+            }
+            catch (Exception e)
+            {
+                TempData["error"] = e.Message;
+                return NoContent();
+            }
 
         }
     }
