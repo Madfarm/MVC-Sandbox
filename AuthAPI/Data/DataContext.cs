@@ -11,6 +11,5 @@ namespace AuthAPI.Data
         public DataContext(DbContextOptions<DataContext> options): base(options) { }
 
         public DbSet<CustomUser> Users { get; set; }
-       
     }
 }

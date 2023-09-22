@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using AuthAPI.Data;
 using Microsoft.AspNetCore.Identity;
+using AuthAPI.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -8,7 +9,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<DataContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-builder.Services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<DataContext>()
+builder.Services.AddIdentity<CustomUser, IdentityRole>().AddEntityFrameworkStores<DataContext>()
     .AddDefaultTokenProviders();
 
 builder.Services.AddControllers();
