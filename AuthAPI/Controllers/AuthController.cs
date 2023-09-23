@@ -3,17 +3,17 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace AuthAPI.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/auth")]
     [ApiController]
     public class AuthController : ControllerBase
     {
-        [HttpPost]
+        [HttpPost("register")]
         public async Task<IActionResult> Register()
         {
             return Ok();
         }
 
-        [HttpPost]
+        [HttpPost("login")]
         public async Task<IActionResult> Login()
         {
             return Ok();
