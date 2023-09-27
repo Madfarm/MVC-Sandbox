@@ -23,7 +23,7 @@ namespace AuthAPI.Services
             throw new NotImplementedException();
         }
 
-        public async Task<UserDto> Register(RegistrationRequestDto registrationRequestDto)
+        public async Task<string> Register(RegistrationRequestDto registrationRequestDto)
         {
             CustomUser user = new()
             {
@@ -45,15 +45,19 @@ namespace AuthAPI.Services
                         Name = returnedUser.Name
                     };
 
-                    return userDto;
+                    return "";
+                }
+                else
+                {
+                    return result.Errors.FirstOrDefault().Description;
                 }
             }
             catch (Exception e)
             {
-
+                
             }
 
-            return new UserDto();
+            return "Error Encountered";
         }
     }
 }
