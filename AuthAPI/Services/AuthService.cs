@@ -29,6 +29,7 @@ namespace AuthAPI.Services
             {
                 Name = registrationRequestDto.Name,
                 Email = registrationRequestDto.Email,
+                UserName = registrationRequestDto.Email
             };
 
             try
