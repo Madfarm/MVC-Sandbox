@@ -19,9 +19,17 @@ namespace AuthAPI.Controllers
         }
 
         [HttpPost("register")]
-        public async Task<IActionResult> Register()
+        public async Task<IActionResult> Register([FromBody] RegistrationRequestDto request)
         {
-            return Ok();
+            var errorMessage = await _authService.Register(request);
+            if(!string.IsNullOrEmpty(errorMessage))
+            {
+                _response.IsSuccssful = false;
+                _response.Message = errorMessage;
+                return BadRequest(_response);
+            }
+
+            return Ok(_response);
         }
 
         [HttpPost("login")]
