@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Web", "Web\Web.csproj", "{9
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AuthAPI", "AuthAPI\AuthAPI.csproj", "{0CCA5E53-1D9D-4B9A-BEC7-43A2E821D147}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SeleniumTesting", "SeleniumTesting\SeleniumTesting.csproj", "{532A8560-2229-48E8-9049-D04D6E5FD907}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebTests", "SeleniumTesting\WebTests.csproj", "{532A8560-2229-48E8-9049-D04D6E5FD907}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
