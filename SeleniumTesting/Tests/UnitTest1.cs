@@ -1,4 +1,4 @@
-namespace WebTests
+namespace WebTests.Tests
 {
     public class Tests
     {
@@ -6,7 +6,7 @@ namespace WebTests
         [SetUp]
         public void Setup()
         {
-            
+
         }
 
         [Test]
@@ -27,7 +27,7 @@ namespace WebTests
             var catPageTable = webDriver.FindElement(By.TagName("table"));
 
             //Assertion
-            Assert.That(catPageTable.Displayed);
+            Assert.That(catPageTable.Displayed, Is.True);
         }
     }
 }
