@@ -13,6 +13,14 @@ namespace WebTests.Pages
             Driver = webDriver;
         }
 
-        public IWebDriver Driver { get; set; }  
+        public IWebDriver Driver { get; set; }
+        
+        public IWebElement linkCat => Driver.FindElement(By.LinkText("Cat"));
+
+        public void ClickCat() => linkCat.Click();
+
+        public IWebElement linkTable => Driver.FindElement(By.TagName("table"));
+
+        public bool isTableDisplayed => linkTable.Displayed;
     }
 }
