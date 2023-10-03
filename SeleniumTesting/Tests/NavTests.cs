@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WebTests.Pages;
 
 namespace WebTests.Tests
 {
@@ -15,8 +16,16 @@ namespace WebTests.Tests
         }
 
         [Test]
-        public void Test1()
+        public void NavToCatPageCheckForTableToBeDisplayed()
         {
+            IWebDriver webDriver = new ChromeDriver();
+            HomePage homePage = new(webDriver);
+
+            //Navigate to site
+            homePage.Driver.Navigate().GoToUrl("https://localhost:7043/");
+
+            homePage.linkCat.Click();
 
         }
+    }
 }

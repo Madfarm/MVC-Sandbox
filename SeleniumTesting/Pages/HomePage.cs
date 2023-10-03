@@ -22,5 +22,7 @@ namespace WebTests.Pages
         public IWebElement linkTable => Driver.FindElement(By.TagName("table"));
 
         public bool isTableDisplayed => linkTable.Displayed;
+
+        public IWebElement CatHeader => Driver.FindElement(By.TagName("h1"));
     }
 }
