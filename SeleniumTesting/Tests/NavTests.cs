@@ -26,6 +26,8 @@ namespace WebTests.Tests
 
             homePage.linkCat.Click();
 
+            Assert.That(homePage.CatHeader.Displayed, Is.True);
+
         }
     }
 }
