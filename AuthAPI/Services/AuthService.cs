@@ -20,19 +20,12 @@ namespace AuthAPI.Services
         }
         public async Task<LoginResponse> Login(LoginRequestDto loginRequestDto)
         {   
-            //Check if user exists
-            //Check if password is correct
-            // If either is fucked, return an empty login response
-            //Create user dto
-            // Create login response
-            // return login response
-
             var user = _db.Users.FirstOrDefault(u => u.UserName == loginRequestDto.UserName);
             var isValid = await _userManager.CheckPasswordAsync(user, loginRequestDto.Password);
 
-            if (user == null || !isValid) 
+            if (user == null || isValid == false) 
             {
-                return new LoginResponse() { User = new(), Token = "" };
+                return new LoginResponse() { User = null, Token = "" };
             }
 
             UserDto userDto = new()
