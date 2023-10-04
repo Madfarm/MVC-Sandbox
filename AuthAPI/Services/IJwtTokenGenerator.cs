@@ -1,7 +1,9 @@
-﻿namespace AuthAPI.Services
+﻿using AuthAPI.Models;
+
+namespace AuthAPI.Services
 {
     public interface IJwtTokenGenerator
     {
-        string GenerateToken();
+        string GenerateToken(CustomUser customUser);
     }
 }
