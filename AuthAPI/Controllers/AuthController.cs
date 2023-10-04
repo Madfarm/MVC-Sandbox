@@ -44,6 +44,9 @@ namespace AuthAPI.Controllers
                 _response.Message = "Username or password is incorrect";
                 return BadRequest(_response);
             }
+
+            _response.Result = loginResponse;
+
             return Ok(_response);
         }
     }
