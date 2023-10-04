@@ -16,7 +16,7 @@ namespace WebTests.Tests
         }
 
         [Test]
-        public void NavToCatPageCheckForTableToBeDisplayed()
+        public void NavToCatPageCheckForHeaderToBeDisplayed()
         {
             IWebDriver webDriver = new ChromeDriver();
             HomePage homePage = new(webDriver);
@@ -27,7 +27,6 @@ namespace WebTests.Tests
             homePage.linkCat.Click();
 
             Assert.That(homePage.CatHeader.Displayed, Is.True);
-
         }
     }
 }
