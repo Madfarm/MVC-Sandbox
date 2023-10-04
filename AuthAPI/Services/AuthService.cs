@@ -18,7 +18,7 @@ namespace AuthAPI.Services
             _userManager = userManager;
             _roleManager = roleManager;
         }
-        public Task<LoginResponse> Login(LoginRequestDto loginRequestDto)
+        public async Task<LoginResponse> Login(LoginRequestDto loginRequestDto)
         {   
             //Check if user exists
             //Check if password is correct
@@ -28,12 +28,27 @@ namespace AuthAPI.Services
             // return login response
 
             var user = _db.Users.FirstOrDefault(u => u.UserName == loginRequestDto.UserName);
-            
+            var isValid = await _userManager.CheckPasswordAsync(user, loginRequestDto.Password);
 
-            if (user == null) 
+            if (user == null || !isValid) 
             {
-
+                return new LoginResponse() { User = new(), Token = "" };
             }
+
+            UserDto userDto = new()
+            {
+                Id = user.Id,
+                Name = user.Name,
+
+            };
+
+            LoginResponse loginResponse = new()
+            {
+                User = userDto,
+                Token = ""
+            };
+
+            return loginResponse;
         }
 
         public async Task<string> Register(RegistrationRequestDto registrationRequestDto)
