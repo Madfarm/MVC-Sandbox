@@ -19,8 +19,21 @@ namespace AuthAPI.Services
             _roleManager = roleManager;
         }
         public Task<LoginResponse> Login(LoginRequestDto loginRequestDto)
-        {
-            throw new NotImplementedException();
+        {   
+            //Check if user exists
+            //Check if password is correct
+            // If either is fucked, return an empty login response
+            //Create user dto
+            // Create login response
+            // return login response
+
+            var user = _db.Users.FirstOrDefault(u => u.UserName == loginRequestDto.UserName);
+            
+
+            if (user == null) 
+            {
+
+            }
         }
 
         public async Task<string> Register(RegistrationRequestDto registrationRequestDto)
