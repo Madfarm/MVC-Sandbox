@@ -27,6 +27,8 @@ namespace AuthAPI.Services
             {
                 return new LoginResponse() { User = null, Token = "" };
             }
+            
+            
 
             UserDto userDto = new()
             {
