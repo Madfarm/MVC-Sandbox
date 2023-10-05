@@ -20,6 +20,26 @@ namespace AuthAPI.Services
             _roleManager = roleManager;
             _jwtTokenGenerator = jwtTokenGenerator;
         }
+
+        public async Task<bool> AssignRole(string email, string roleName)
+        {
+            var user = _db.Users.FirstOrDefault(u => u.Email.ToLower() == email.ToLower());
+
+            if (user != null)
+            {
+                var roleExists = await _roleManager.RoleExistsAsync(roleName);
+
+                if (!roleExists)
+                {
+                    await _roleManager.CreateAsync(new IdentityRole(roleName));
+                }
+
+                await _userManager.AddToRoleAsync(user, roleName);
+                return true;
+            }
+            return false;
+        }
+
         public async Task<LoginResponse> Login(LoginRequestDto loginRequestDto)
         {   
             var user = _db.Users.FirstOrDefault(u => u.UserName == loginRequestDto.UserName);
