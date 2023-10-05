@@ -53,16 +53,14 @@ namespace AuthAPI.Controllers
         [HttpPost("assign-role")]
         public async Task<IActionResult> AssignRole([FromBody] RegistrationRequestDto request)
         {
-            var loginResponse = await _authService.Login(request);
+            var assignRoleSuccessful = await _authService.AssignRole(request.Email, request.Role.ToUpper());
 
-            if (loginResponse.User == null)
+            if (!assignRoleSuccessful)
             {
                 _response.IsSuccssful = false;
-                _response.Message = "Username or password is incorrect";
+                _response.Message = "An error has occurred";
                 return BadRequest(_response);
             }
-
-            _response.Result = loginResponse;
 
             return Ok(_response);
         }
