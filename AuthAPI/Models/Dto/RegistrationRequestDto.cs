@@ -1,5 +1,6 @@
 ﻿namespace AuthAPI.Models.Dto
 {
+    // Add a new attribute
     public class RegistrationRequestDto
     {
         public string Name { get; set; }
