@@ -10,6 +10,7 @@ namespace WebTests.Utilities
     public class Config
     {
         public static string BaseUrl => GetValue("BaseUrl");
+        public static string DriverToUser => GetValue("DriverToUse");
 
         private static string GetValue(string value)
         {

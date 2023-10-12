@@ -19,7 +19,7 @@ namespace WebTests.Utilities
         {
             IWebDriver driver;
 
-            var driverToUse = Config.BaseUrl;
+            var driverToUse = Config.DriverToUse;
 
             switch(driverToUse)
             {
