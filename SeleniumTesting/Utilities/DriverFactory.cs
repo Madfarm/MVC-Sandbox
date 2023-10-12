@@ -25,6 +25,8 @@ namespace WebTests.Utilities
 
             }
 
+            driver.Manage().Window.Maximize();
+
 
             return driver;
         }
