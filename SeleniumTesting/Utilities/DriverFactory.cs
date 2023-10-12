@@ -7,12 +7,6 @@ using OpenQA.Selenium.Chrome;
 
 namespace WebTests.Utilities
 {
-    public enum DriverToUse
-    {
-        InternetExplorer,
-        Chrome,
-        Firefox
-    }
     public class DriverFactory
     {
         public IWebDriver Create()
@@ -23,9 +17,16 @@ namespace WebTests.Utilities
 
             switch(driverToUse)
             {
-                case DriverToUse.Chrome:
+                case "Chrome":
+                    driver = new ChromeDriver();
+                    break;
+                default:
+                    throw new ArgumentException();
 
             }
+
+
+            return driver;
         }
        
 
