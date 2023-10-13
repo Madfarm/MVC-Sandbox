@@ -14,7 +14,8 @@ namespace WebTests.PageObjects
             PageFactory.InitElements(_driver, this);
         }
 
-        [FindsBy(How.Id = "")]
+        [FindsBy(How = How.Id, Using = "mynavbar")]
+        public IWebElement navBar { get; set; }
 
     }
 }
