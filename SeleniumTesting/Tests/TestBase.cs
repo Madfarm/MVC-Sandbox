@@ -15,6 +15,7 @@ namespace WebTests.Tests
         public void startUpTest()
         {
             _driver = new DriverFactory().Create();
+            _driver.Navigate().GoToUrl(Config.BaseUrl);
         }
 
         [OneTimeTearDown]
