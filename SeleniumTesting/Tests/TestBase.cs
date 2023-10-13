@@ -10,16 +10,17 @@ namespace WebTests.Tests
     [SetUpFixture]
     public class TestBase
     {
+        protected IWebDriver _driver;
         [OneTimeSetUp]
         public void startUpTest()
         {
-            Browser.Init();
+            _driver = new DriverFactory().Create();
         }
 
         [OneTimeTearDown]
         public void endTest()
         {
-            Browser.Close();
+            _driver.Quit();
         }
     }
 }

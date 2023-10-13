@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.Configuration;
 
 
-namespace WebTests.Utilities
+namespace WebTests
 {
     public class Config
     {

@@ -10,15 +10,12 @@ namespace WebTests.Tests
     [TestFixture]
     public class NavigationAndDisplayTests : TestBase
     {
-        private readonly HomePage _homePage;
-        public NavigationAndDisplayTests(HomePage homepage)
-        {
-            _homePage = homepage;
-        }
         [Test]
         public void NavBarDisplayedShouldPass()
         {
-            Assert.That(_homePage.navBar.Displayed, Is.True);
+            var homePage = new HomePage(_driver);
+
+            Assert.That(homePage.navBar.Displayed, Is.True);
         }
         
     }

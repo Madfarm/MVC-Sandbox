@@ -24,4 +24,10 @@
     <PackageReference Include="Selenium.WebDriver.ChromeDriver" Version="117.0.5938.9200" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="appsettings.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

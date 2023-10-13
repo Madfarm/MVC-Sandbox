@@ -13,19 +13,20 @@ namespace WebTests.Utilities
         {
             IWebDriver driver;
 
-            var driverToUse = Config.DriverToUse;
+            string driverToUse = Config.DriverToUse;
+            Console.WriteLine(driverToUse);
 
-            switch(driverToUse)
+            switch (driverToUse)
             {
                 case "Chrome":
                     driver = new ChromeDriver();
                     break;
                 default:
-                    throw new ArgumentException();
+                    throw new ArgumentOutOfRangeException(nameof(driverToUse));
             }
 
             driver.Manage().Window.Maximize();
-
+            
 
             return driver;
         }
