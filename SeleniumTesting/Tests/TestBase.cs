@@ -7,7 +7,7 @@ using WebTests.Utilities;
 
 namespace WebTests.Tests
 {
-    [TestFixture]
+    [SetUpFixture]
     public class TestBase
     {
         [OneTimeSetUp]
