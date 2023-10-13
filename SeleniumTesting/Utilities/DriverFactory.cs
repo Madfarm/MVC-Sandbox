@@ -22,7 +22,6 @@ namespace WebTests.Utilities
                     break;
                 default:
                     throw new ArgumentException();
-
             }
 
             driver.Manage().Window.Maximize();
