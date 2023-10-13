@@ -1,5 +1,7 @@
 ﻿
 
+using SeleniumExtras.PageObjects;
+
 namespace WebTests.PageObjects
 {
     
@@ -9,8 +11,10 @@ namespace WebTests.PageObjects
         public HomePage(IWebDriver driver)
         {
             _driver = driver;
+            PageFactory.InitElements(_driver, this);
         }
 
+        [FindsBy(How.Id = "")]
 
     }
 }

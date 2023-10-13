@@ -8,15 +8,15 @@ using WebTests.Utilities;
 namespace WebTests.Tests
 {
     [TestFixture]
-    public class Tests
+    public class TestBase
     {
-        [SetUp]
+        [OneTimeSetUp]
         public void startUpTest()
         {
             Browser.Init();
         }
 
-        [TearDown]
+        [OneTimeTearDown]
         public void endTest()
         {
             Browser.Close();
