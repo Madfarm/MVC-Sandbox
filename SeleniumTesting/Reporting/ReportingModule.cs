@@ -22,7 +22,7 @@ namespace WebTests.Reporting
             date = DateTime.Now;
             fileName = date.Date.Date.ToShortDateString() + date.TimeOfDay.Hours.ToString() + date.TimeOfDay.Minutes.ToString();
             reportcsv = new StringBuilder();
-            filePath = @"D:\VisualStudio\repos\MVC Sandbox\WebTests\Reporting" + fileName + ".csv";
+            filePath = @"D:\VisualStudio\repos\MVC Sandbox\SeleniumTesting\Reporting" + fileName + ".csv";
             createCsvFile();
         }
         private void createCsvFile()
