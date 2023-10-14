@@ -9,26 +9,30 @@ namespace WebTests.Utilities
 {
     public class DriverFactory
     {
+        public static IWebDriver _driver;
         public IWebDriver Create()
         {
-            IWebDriver driver;
-
             string driverToUse = Config.DriverToUse;
             Console.WriteLine(driverToUse);
 
             switch (driverToUse)
             {
                 case "Chrome":
-                    driver = new ChromeDriver();
+                    _driver = new ChromeDriver();
                     break;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(driverToUse));
             }
 
-            driver.Manage().Window.Maximize();
+            _driver.Manage().Window.Maximize();
             
 
-            return driver;
+            return _driver;
+        }
+
+        public static IWebDriver GetDriver
+        {
+            get { return _driver; }
         }
        
 
