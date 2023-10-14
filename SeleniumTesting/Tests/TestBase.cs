@@ -17,7 +17,10 @@ namespace WebTests.Tests
         public void startUpTest()
         {
             _driver = new DriverFactory().Create();
-            Reports = new ReportsManager(Config.DriverToUse, Config.BaseUrl);
+
+            // Reporting to be implemented later
+            //Reports = new ReportsManager(Config.DriverToUse, Config.BaseUrl);
+
             _driver.Navigate().GoToUrl(Config.BaseUrl);
         }
 
