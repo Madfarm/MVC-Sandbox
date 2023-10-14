@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WebTests.Utilities;
 
 namespace WebTests.Reporting
 {
@@ -11,7 +12,7 @@ namespace WebTests.Reporting
         ReportingModule report;
         string browser;
         string url;
-        IWebDriver driver = Browsers.getDriver;
+        IWebDriver driver = DriverFactory.GetDriver;
         public ReportsManager(string browser, string url)
         {
             this.browser = browser;
