@@ -17,6 +17,28 @@ namespace WebTests.Tests
 
             Assert.That(homePage.navBar.Displayed, Is.True);
         }
+
+        [Test]
+        public void ContactFormTestFlowShouldPass()
+        {
+            var homePage = new HomePage(_driver);
+
+            homePage.firstNameField.SendKeys("Meguy");
+            homePage.lastNameField.SendKeys("ActualLastname");
+            homePage.emailField.SendKeys("email@example.com");
+            homePage.businessNameField.SendKeys("MyBusiness");
+            homePage.SubmitBtn.Click();
+        }
+
+        [Test]
+        public void CheckValidationOfEmptyContactForm()
+        {
+            var homePage = new HomePage(_driver);
+
+            homePage.SubmitBtn.Click();
+
+            //var alertText = _driver.SwitchTo().Alert();
+        }
         
     }
 }
