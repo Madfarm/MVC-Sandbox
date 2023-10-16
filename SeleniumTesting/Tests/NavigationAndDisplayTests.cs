@@ -28,7 +28,8 @@ namespace WebTests.Tests
             homePage.emailField.SendKeys("email@example.com");
             homePage.businessNameField.SendKeys("MyBusiness");
             homePage.SubmitBtn.Click();
-        }
+
+         }
 
         [Test]
         public void CheckValidationOfEmptyContactForm()
@@ -37,7 +38,9 @@ namespace WebTests.Tests
 
             homePage.SubmitBtn.Click();
 
-            //var alertText = _driver.SwitchTo().Alert();
+            var alertText = _driver.SwitchTo().Alert().Text;
+
+            Assert.That(alertText, Is.EqualTo("Please type your first name"));
         }
         
     }
