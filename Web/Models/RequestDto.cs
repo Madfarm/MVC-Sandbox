@@ -1,6 +1,6 @@
-﻿using static Fakesturant.Web.Utility.SD;
+﻿using static Web.Utility.SD;
 
-namespace Fakesturant.Web.Models.DTOs
+namespace Web.Models
 {
     
     public class RequestDto
