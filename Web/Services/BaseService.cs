@@ -1,8 +1,8 @@
-﻿using AuthAPI.Models.Dto;
-using System.Net.Http;
-using System.Text;
+﻿using System.Text;
 using Web.Services.IServices;
 using static Web.Utility.SD;
+using Web.Models;
+using Newtonsoft.Json;
 
 namespace Web.Services
 {
@@ -15,7 +15,7 @@ namespace Web.Services
             _httpClientFactory = httpClientFactory;
         }
 
-        public async Task<ResponseDto?> SendAsync(RequestDto requestDto)
+        public async Task<ResponseDto?> SendDataAsync(RequestDto requestDto)
         {
             HttpClient client = _httpClientFactory.CreateClient("FakesturantAPI");
             HttpRequestMessage message = new();
