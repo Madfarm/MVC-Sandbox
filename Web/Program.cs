@@ -1,5 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using Web.Data;
+using Web.Services;
+using Web.Services.IServices;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -8,7 +10,7 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddHttpClient();
 
-
+builder.Services.AddScoped<IBaseService, BaseService>();
 
 builder.Services.AddDbContext<DataContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
