@@ -18,7 +18,7 @@ namespace AuthAPI.Controllers
             _response = new ResponseDto();
         }
 
-        //Let's goooooooooo
+        
         [HttpPost("register")]
         public async Task<IActionResult> Register([FromBody] RegistrationRequestDto request)
         {

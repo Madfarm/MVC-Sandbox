@@ -33,9 +33,14 @@ namespace Web.Services
             });
         }
 
-        public Task<ResponseDto?> AssignRole(RegistrationRequestDto request)
+        public async Task<ResponseDto?> AssignRole(RegistrationRequestDto request)
         {
-            throw new NotImplementedException();
+            return await _baseService.SendDataAsync(new RequestDto
+            {
+                ApiType = SD.ApiType.POST,
+                Url = SD.AuthAPIBase + "api/auth/assign-role",
+                Data = request
+            });
         }
     }
 }
