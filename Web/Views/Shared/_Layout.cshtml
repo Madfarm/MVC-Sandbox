@@ -33,6 +33,18 @@
                             <a class="nav-link text-dark" asp-controller="Cat" asp-action="Index">Cat</a>
                         </li>
                     </ul>
+
+                    <ul>
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <li><a class="nav-link text-dark" asp-controller="Auth" asp-action="Logout">Logout</a></li>
+                        }
+                        else
+                        {
+                            <li><a class="nav-link text-dark" asp-controller="Auth" asp-action="Login">Login</a></li>
+                            <li><a class="nav-link text-dark" asp-controller="Auth" asp-action="Register">Sign Up</a></li>
+                        }
+                    </ul>
                 </div>
             </div>
         </nav>
