@@ -1,6 +1,7 @@
 ﻿using AuthAPI.Models.Dto;
 using Web.Models;
 using Web.Services.IServices;
+using Web.Utility;
 
 namespace Web.Services
 {
@@ -12,9 +13,14 @@ namespace Web.Services
         {
             _baseService = baseService;
         }
-        public Task<ResponseDto?> Login(LoginRequestDto request)
+        public async Task<ResponseDto?> Login(LoginRequestDto request)
         {
-            throw new NotImplementedException();
+            return await _baseService.SendDataAsync(new RequestDto
+            {
+                ApiType = SD.ApiType.POST,
+                Url = SD.AuthAPIBase + "login",
+                Data = request
+            });
         }
 
         public Task<ResponseDto?> Register(RegistrationRequestDto request)
