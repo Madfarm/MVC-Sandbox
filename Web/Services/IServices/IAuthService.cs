@@ -6,5 +6,7 @@ namespace Web.Services.IServices
     {
         Task<ResponseDto?> Login(LoginRequestDto request);
         Task<ResponseDto?> Register(RegistrationRequestDto request);
+
+        Task<ResponseDto?> AssignRole(RegistrationRequestDto request);
     }
 }
