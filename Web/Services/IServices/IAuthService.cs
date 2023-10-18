@@ -1,10 +1,10 @@
-﻿using AuthAPI.Models.Dto;
+﻿using Web.Models;
 
 namespace Web.Services.IServices
 {
     public interface IAuthService
     {
-        Task<LoginResponse?> Login(LoginRequestDto request);
-        Task<RegistrationRequestDto> Register(RegistrationRequestDto request);
+        Task<ResponseDto?> Login(LoginRequestDto request);
+        Task<ResponseDto?> Register(RegistrationRequestDto request);
     }
 }

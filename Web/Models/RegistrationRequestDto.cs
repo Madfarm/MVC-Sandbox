@@ -1,4 +1,4 @@
-﻿namespace AuthAPI.Models.Dto
+﻿namespace Web.Models
 {
     // Add a new attribute
     public class RegistrationRequestDto

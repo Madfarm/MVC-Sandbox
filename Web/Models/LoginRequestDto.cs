@@ -1,4 +1,4 @@
-﻿namespace AuthAPI.Models.Dto
+﻿namespace Web.Models
 {
     public class LoginRequestDto
     {
