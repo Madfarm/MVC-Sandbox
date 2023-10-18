@@ -18,12 +18,22 @@ namespace Web.Services
             return await _baseService.SendDataAsync(new RequestDto
             {
                 ApiType = SD.ApiType.POST,
-                Url = SD.AuthAPIBase + "login",
+                Url = SD.AuthAPIBase + "api/auth/login",
                 Data = request
             });
         }
 
-        public Task<ResponseDto?> Register(RegistrationRequestDto request)
+        public async Task<ResponseDto?> Register(RegistrationRequestDto request)
+        {
+            return await _baseService.SendDataAsync(new RequestDto
+            {
+                ApiType = SD.ApiType.POST,
+                Url = SD.AuthAPIBase + "api/auth/register",
+                Data = request
+            });
+        }
+
+        public Task<ResponseDto?> AssignRole(RegistrationRequestDto request)
         {
             throw new NotImplementedException();
         }
