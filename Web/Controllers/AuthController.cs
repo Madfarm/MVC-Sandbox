@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace Web.Controllers
 {
@@ -6,6 +7,11 @@ namespace Web.Controllers
     {
         public IActionResult Register()
         {
+            List<SelectListItem> roleList = new()
+            {
+                
+            };
+
             return View();
         }
 
