@@ -21,7 +21,12 @@
                 <input class="form-control" asp-for="Email" placeholder="Email..." />
                 <span asp-validation-for="Email"></span>
             </div>
+        </div>
 
+        <div class="row">
+            <select class="form-select" asp-for="Role" asp-items="@ViewBag.RoleList">
+                <option disabled selected>--Select Role--</option>
+            </select>
         </div>
 
         <div class="row">
