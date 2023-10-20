@@ -2,6 +2,32 @@
 
 <form method="post">
     <section class="container">
+        <div class="row text-center">
+            <h1>Register</h1>
+        </div>
+
+        <div class="row pb-2">
+            <div>
+                <input class="form-control" asp-for="Name" placeholder="Name..." />
+                <span asp-validation-for="Name"></span>
+            </div>
+
+            <div>
+                <input class="form-control" asp-for="Password" placeholder="Password..." />
+                <span asp-validation-for="Password"></span>
+            </div>
+
+            <div>
+                <input class="form-control" asp-for="Email" placeholder="Email..." />
+                <span asp-validation-for="Email"></span>
+            </div>
+
+        </div>
+
+        <div class="row">
+            <button class="btn btn-info form-control" type="submit">Login</button>
+        </div>
+
 
     </section>
 </form>
