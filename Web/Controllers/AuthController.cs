@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Web.Utility;
 
 namespace Web.Controllers
 {
@@ -9,9 +10,11 @@ namespace Web.Controllers
         {
             List<SelectListItem> roleList = new()
             {
-                
+                new SelectListItem{Value=SD.CustomerRole, Text=SD.CustomerRole},
+                new SelectListItem{Value=SD.AdminRole, Text=SD.AdminRole}
             };
 
+            ViewBag.RoleList = roleList;
             return View();
         }
 
