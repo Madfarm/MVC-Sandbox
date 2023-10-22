@@ -32,7 +32,7 @@ namespace Web.Controllers
         {
             var result = await _authService.Register(request);
 
-            if(result != null && result.IsSuccssful)
+            if (result != null && result.IsSuccssful)
             {
                 if (string.IsNullOrEmpty(request.Role))
                 {
@@ -58,7 +58,7 @@ namespace Web.Controllers
 
             TempData["error"] = "Something went wrong";
             return View(request);
-            
+
 
         }
 
@@ -67,5 +67,21 @@ namespace Web.Controllers
             return View();
         }
 
+        [HttpPost]
+        public async Task<IActionResult> Login(LoginRequestDto request)
+        {
+            var result = await _authService.Register(request);
+
+            if (result != null && result.IsSuccssful)
+            {
+                if (string.IsNullOrEmpty(request.Role))
+                {
+                    request.Role = SD.CustomerRole;
+                }
+
+               
+            }
+
+        }
     }
 }
