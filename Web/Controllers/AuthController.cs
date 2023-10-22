@@ -67,7 +67,8 @@ namespace Web.Controllers
 
         public IActionResult Login()
         {
-            return View();
+            LoginRequestDto loginRequest = new();
+            return View(loginRequest);
         }
 
         [HttpPost]
