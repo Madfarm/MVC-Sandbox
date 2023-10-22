@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Web.Models;
 using Web.Utility;
 
 namespace Web.Controllers
@@ -16,6 +17,12 @@ namespace Web.Controllers
 
             ViewBag.RoleList = roleList;
             return View();
+        }
+
+        [HttpPost]
+        public IActionResult Register(RegistrationRequestDto request)
+        {
+            return NoContent();
         }
 
         public IActionResult Login()
