@@ -35,12 +35,12 @@ namespace Web.Controllers
             if(result != null && result.IsSuccssful)
             {
                 TempData["success"] = "Registered successfully. Login to continue";
-                return RedirectToAction("Login");
+                return RedirectToAction(nameof(Login));
             }
             else
             {
                 TempData["error"] = "Something went wrong";
-                return RedirectToAction("register");
+                return RedirectToAction(nameof(Register));
             }
 
         }
