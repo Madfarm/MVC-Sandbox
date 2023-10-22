@@ -14,6 +14,7 @@ namespace Web.Controllers
         {
             _authService = authService;
         }
+
         public IActionResult Register()
         {
             List<SelectListItem> roleList = new()
@@ -27,9 +28,21 @@ namespace Web.Controllers
         }
 
         [HttpPost]
-        public IActionResult Register(RegistrationRequestDto request)
+        public async Task<IActionResult> Register(RegistrationRequestDto request)
         {
-            return NoContent();
+            var result = await _authService.Register(request);
+
+            if(result != null && result.IsSuccssful)
+            {
+                TempData["success"] = "Registered successfully. Login to continue";
+                return RedirectToAction("Login");
+            }
+            else
+            {
+                TempData["error"] = "Something went wrong";
+                return RedirectToAction("register");
+            }
+
         }
 
         public IActionResult Login()
