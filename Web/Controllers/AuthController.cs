@@ -34,14 +34,30 @@ namespace Web.Controllers
 
             if(result != null && result.IsSuccssful)
             {
-                TempData["success"] = "Registered successfully. Login to continue";
-                return RedirectToAction(nameof(Login));
+                if (string.IsNullOrEmpty(request.Role))
+                {
+                    request.Role = SD.CustomerRole;
+                }
+
+                var roleResult = await _authService.AssignRole(request);
+
+                if (roleResult != null && roleResult.IsSuccssful)
+                {
+                    TempData["success"] = "Registered successfully. Login to continue";
+                    return RedirectToAction(nameof(Login));
+
+                }
             }
-            else
+
+            List<SelectListItem> roleList = new()
             {
-                TempData["error"] = "Something went wrong";
-                return RedirectToAction(nameof(Register));
-            }
+                new SelectListItem{Value=SD.CustomerRole, Text=SD.CustomerRole},
+                new SelectListItem{Value=SD.AdminRole, Text=SD.AdminRole}
+            };
+            ViewBag.RoleList = roleList;
+            TempData["error"] = "Something went wrong";
+            return View(request);
+            
 
         }
 
