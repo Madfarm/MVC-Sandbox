@@ -1,5 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AuthAPI.Models.Dto;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 using Web.Models;
 using Web.Services.IServices;
 using Web.Utility;
@@ -74,12 +77,16 @@ namespace Web.Controllers
 
             if (result != null && result.IsSuccssful)
             {
+                LoginResponse responseDto = JsonConvert.DeserializeObject<LoginResponse>(Convert.ToString(result.Result));
                 TempData["success"] = "Signed in successfully";
-                return RedirectToAction("Home", "Index");
+                return RedirectToAction("Index", "Home");
             }
-
-            TempData["error"] = "Something went wrong";
-            return View(request);
+            else
+            {
+                ModelState.AddModelError("CustomerError", result.Message);
+                TempData["error"] = "Something went wrong";
+                return View(request);
+            }
         }
     }
 }
