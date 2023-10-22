@@ -70,18 +70,16 @@ namespace Web.Controllers
         [HttpPost]
         public async Task<IActionResult> Login(LoginRequestDto request)
         {
-            var result = await _authService.Register(request);
+            var result = await _authService.Login(request);
 
             if (result != null && result.IsSuccssful)
             {
-                if (string.IsNullOrEmpty(request.Role))
-                {
-                    request.Role = SD.CustomerRole;
-                }
-
-               
+                TempData["success"] = "Signed in successfully";
+                return RedirectToAction("Home", "Index");
             }
 
+            TempData["error"] = "Something went wrong";
+            return View(request);
         }
     }
 }
