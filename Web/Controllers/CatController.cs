@@ -94,5 +94,12 @@ namespace Web.Controllers
             }
 
         }
+
+
+        [HttpGet]
+        public IActionResult Kittens()
+        {
+            return View();
+        }
     }
 }
