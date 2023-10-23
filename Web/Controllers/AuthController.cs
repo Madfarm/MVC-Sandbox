@@ -100,7 +100,10 @@ namespace Web.Controllers
             _contextAccesor = contextAccessor;
         }
 
-        
+        public void SetToken(string? token)
+        {
+            _contextAccesor.HttpContext.Response.Cookies.Append("JwtToken", token);
+        }
 
     }
 }
