@@ -90,4 +90,17 @@ namespace Web.Controllers
             }
         }
     }
+
+    public class TokenHelper
+    {
+        private readonly IHttpContextAccessor _contextAccesor;
+
+        public TokenHelper(IHttpContextAccessor contextAccessor)
+        {
+            _contextAccesor = contextAccessor;
+        }
+
+        
+
+    }
 }
