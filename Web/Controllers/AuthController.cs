@@ -105,5 +105,10 @@ namespace Web.Controllers
             _contextAccesor.HttpContext.Response.Cookies.Append("JwtToken", token);
         }
 
+        public void ClearToken()
+        {S
+            _contextAccesor.HttpContext.Response.Cookies.Delete("JwtToken");
+        }
+
     }
 }
