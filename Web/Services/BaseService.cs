@@ -17,7 +17,7 @@ namespace Web.Services
 
         public async Task<ResponseDto?> SendDataAsync(RequestDto requestDto)
         {
-            HttpClient client = _httpClientFactory.CreateClient("FakesturantAPI");
+            HttpClient client = _httpClientFactory.CreateClient("MVCSandboxAPIs");
             HttpRequestMessage message = new();
             message.Headers.Add("Accept", "application/json");
             // token to be implemented later
