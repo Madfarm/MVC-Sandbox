@@ -18,7 +18,7 @@ namespace Web.Services
             return await _baseService.SendDataAsync(new RequestDto
             {
                 ApiType = SD.ApiType.POST,
-                Url = SD.AuthAPIBase + "api/auth/login",
+                Url = SD.AuthAPIBase + "/api/auth/login",
                 Data = request
             });
         }
@@ -28,7 +28,7 @@ namespace Web.Services
             return await _baseService.SendDataAsync(new RequestDto
             {
                 ApiType = SD.ApiType.POST,
-                Url = SD.AuthAPIBase + "api/auth/register",
+                Url = SD.AuthAPIBase + "/api/auth/register",
                 Data = request
             });
         }
@@ -38,7 +38,7 @@ namespace Web.Services
             return await _baseService.SendDataAsync(new RequestDto
             {
                 ApiType = SD.ApiType.POST,
-                Url = SD.AuthAPIBase + "api/auth/assign-role",
+                Url = SD.AuthAPIBase + "/api/auth/assign-role",
                 Data = request
             });
         }

@@ -3,6 +3,7 @@ using Web.Controllers;
 using Web.Data;
 using Web.Services;
 using Web.Services.IServices;
+using Web.Utility;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,6 +12,9 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddHttpClient();
 builder.Services.AddHttpClient<IAuthService, AuthService>();
+
+SD.AuthAPIBase = builder.Configuration["ServiceUrls:AuthAPIBase"];
+
 
 builder.Services.AddScoped<IBaseService, BaseService>();
 builder.Services.AddScoped<IAuthService, AuthService>();
