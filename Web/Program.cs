@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using Web.Controllers;
 using Web.Data;
 using Web.Services;
 using Web.Services.IServices;
@@ -11,6 +12,7 @@ builder.Services.AddHttpContextAccessor();
 builder.Services.AddHttpClient();
 builder.Services.AddHttpClient<IAuthService, AuthService>();
 
+builder.Services.AddScoped<TokenHelper>();
 builder.Services.AddScoped<IBaseService, BaseService>();
 builder.Services.AddScoped<IAuthService, AuthService>();
 
