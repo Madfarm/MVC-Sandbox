@@ -106,8 +106,16 @@ namespace Web.Controllers
         }
 
         public void ClearToken()
-        {S
+        {
             _contextAccesor.HttpContext.Response.Cookies.Delete("JwtToken");
+        }
+
+        public string? GetToken() 
+        {
+            string token = null;
+            bool? hasToken = _contextAccesor.HttpContext.Request.Cookies.TryGetValue("JwtToken", out token);
+
+            return hasToken is true ? token : null;
         }
 
     }
