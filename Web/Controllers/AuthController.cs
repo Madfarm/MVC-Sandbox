@@ -12,10 +12,12 @@ namespace Web.Controllers
     public class AuthController : Controller
     {
         private readonly IAuthService _authService;
+        private readonly IHttpContextAccessor _contextAccessor;
 
-        public AuthController(IAuthService authService)
+        public AuthController(IAuthService authService, IHttpContextAccessor contextAccessor)
         {
             _authService = authService;
+            _contextAccessor = contextAccessor;
         }
 
         public IActionResult Register()
@@ -79,6 +81,10 @@ namespace Web.Controllers
             if (result != null && result.IsSuccssful)
             {
                 LoginResponse responseDto = JsonConvert.DeserializeObject<LoginResponse>(Convert.ToString(result.Result));
+
+
+                _contextAccessor.HttpContext.Response.Cookies.Append("JwtToken", responseDto.Token);
+
                 TempData["success"] = "Signed in successfully";
                 return RedirectToAction("Index", "Home");
             }
