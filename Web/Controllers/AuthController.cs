@@ -1,7 +1,11 @@
 ﻿using AuthAPI.Models.Dto;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Newtonsoft.Json;
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
 using System.Text.Json.Serialization;
 using Web.Models;
 using Web.Services.IServices;
@@ -84,6 +88,28 @@ namespace Web.Controllers
 
 
                 _contextAccessor.HttpContext.Response.Cookies.Append("JwtToken", responseDto.Token);
+
+                var handler = new JwtSecurityTokenHandler();
+
+                var jwt = handler.ReadJwtToken(responseDto.Token);
+
+                var identity = new ClaimsIdentity(CookieAuthenticationDefaults.AuthenticationScheme);
+
+                identity.AddClaim(new Claim(JwtRegisteredClaimNames.Email,
+                    jwt.Claims.FirstOrDefault(u => u.Type == JwtRegisteredClaimNames.Email).Value));
+                identity.AddClaim(new Claim(JwtRegisteredClaimNames.Sub,
+                   jwt.Claims.FirstOrDefault(u => u.Type == JwtRegisteredClaimNames.Sub).Value));
+                identity.AddClaim(new Claim(JwtRegisteredClaimNames.Name,
+                   jwt.Claims.FirstOrDefault(u => u.Type == JwtRegisteredClaimNames.Name).Value));
+
+                identity.AddClaim(new Claim(ClaimTypes.Name,
+                   jwt.Claims.FirstOrDefault(u => u.Type == JwtRegisteredClaimNames.Email).Value));
+
+
+
+
+                var principal = new ClaimsPrincipal(identity);
+                await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
 
                 TempData["success"] = "Signed in successfully";
                 return RedirectToAction("Index", "Home");
