@@ -121,6 +121,13 @@ namespace Web.Controllers
                 return View(request);
             }
         }
+
+        public async Task<IActionResult> Logout()
+        {
+            await HttpContext.SignOutAsync();
+            _contextAccessor.HttpContext.Response.Cookies.Delete("JwtToken");
+            return RedirectToAction("Index", "Home");
+        }
     }
 
 }
