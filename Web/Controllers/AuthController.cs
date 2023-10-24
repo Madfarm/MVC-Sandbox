@@ -91,32 +91,4 @@ namespace Web.Controllers
         }
     }
 
-    public class TokenHelper
-    {
-        private readonly IHttpContextAccessor _contextAccesor;
-
-        public TokenHelper(IHttpContextAccessor contextAccessor)
-        {
-            _contextAccesor = contextAccessor;
-        }
-
-        public void SetToken(string? token)
-        {
-            _contextAccesor.HttpContext.Response.Cookies.Append("JwtToken", token);
-        }
-
-        public void ClearToken()
-        {
-            _contextAccesor.HttpContext.Response.Cookies.Delete("JwtToken");
-        }
-
-        public string? GetToken() 
-        {
-            string token = null;
-            bool? hasToken = _contextAccesor.HttpContext.Request.Cookies.TryGetValue("JwtToken", out token);
-
-            return hasToken is true ? token : null;
-        }
-
-    }
 }
