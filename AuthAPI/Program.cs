@@ -4,6 +4,8 @@ using Microsoft.AspNetCore.Identity;
 using AuthAPI.Models;
 using AuthAPI.Services;
 
+var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -20,6 +22,17 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(MyAllowSpecificOrigins,
+            policy =>
+            {
+                policy.WithOrigins("http://localhost:5173/")
+                .AllowAnyHeader()
+                .AllowAnyMethod();
+            });
+});
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -33,6 +46,8 @@ app.UseHttpsRedirection();
 
 app.UseAuthentication();
 app.UseAuthorization();
+app.UseCors(MyAllowSpecificOrigins);
+
 
 app.MapControllers();
 
